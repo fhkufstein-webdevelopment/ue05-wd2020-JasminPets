@@ -27,6 +27,27 @@ $(document).ready(function() {
 
         //your code follows here
 
+        var element = document.getElementById("username"); //speicher username in "element"
+
+        var newUser = element.value; //Wert des elements auslesen
+
+        userListBody.push(newUser); //element zu Liste hinzufügen
+
+        var currLengt = userListBody.length; //liste in var speichern
+
+        var table = document.getElementById("table");
+
+        var row = table.insertRow(-1); //Reihe zu Tablle hinzufügen
+
+        var c1 = row.insertCell(0);
+        var c2 = row.insertCell(1);
+        var c3 = row.insertCell(2); //Zeilen einfügen
+
+        c1.innerHTML =  currLengt; //erste Zeile aktuelle Länge
+        c2.innerHTML = newUser;
+        c3.innerHTML = "<button type=\"button\" class=\"btn btn-secondary btn-danger deleteTrigger\" title=\"delete\"><i class=\"fa fa-trash\"></i></button>";
+
+
         return false;
     });
 
@@ -38,6 +59,8 @@ $(document).ready(function() {
 
         //your code follows here
 
+        var index = document.getElementById("index").value;
+        document.getElementById("table").deleteRow(index+1);
 
     });
 
